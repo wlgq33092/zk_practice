@@ -1,8 +1,13 @@
-#include<stdio.h>
-#include<string.h>
-#include"zookeeper.h"
-#include"zookeeper_log.h"
+#include <stdio.h>
+#include <string.h>
+#include "zookeeper.h"
+#include "zookeeper_log.h"
 
+#include "ds_lock.h"
+
+using namespace std;
+
+/*
 void zktest_watcher_g(zhandle_t* zh, int type, int state, const char* path, void* watcherCtx)
 {
     printf("Something happened.\n");
@@ -11,6 +16,7 @@ void zktest_watcher_g(zhandle_t* zh, int type, int state, const char* path, void
     printf("path: %s\n", path);
     printf("watcherCtx: %s\n", (char *)watcherCtx);
 }
+*/
 
 //自己的监听函数
 void watcher_myself(zhandle_t *zh,int type,int state,const char *path,void *watcherCtx)
