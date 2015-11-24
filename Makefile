@@ -1,5 +1,5 @@
 src=zk_main.cpp
-objs=zk_main.o
+objs=main.o
 
 cc=g++
 AR=ar
@@ -14,7 +14,7 @@ link_lib=-L /home/parallels/open_source/zookeeper-3.4.6/src/c/.libs
 	$(cc) $(include_dir) -c -o $@ $^ -g
 
 zk_practice:$(objs)
-	$(cc) $(objs) -o zk_practice $(link_lib) -lzookeeper_mt
+	$(cc) $(objs) -o zk_practice $(link_lib) -lzookeeper_mt -lpthread
 
 clean:
 	rm zk_practice *.o
