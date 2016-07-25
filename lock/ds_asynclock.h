@@ -29,7 +29,7 @@ struct ZKConfig {
     int timeout;
 };
 
-class DSLock {
+class DSAsyncLock {
 private:
     LockStat stat;
     string name;
@@ -96,13 +96,10 @@ public:
                     // lock success!
                     break;
                 } else {
-                    // lock fail! do nothing
+                    // lock fail! do nothing, blocking....
                 }
             }
         }
-        
-        // string path = LOCKROOT + "/" + name;
-        // createNode(this->name.c_str());
     }
 
     void unlock() {
